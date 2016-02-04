@@ -1,1 +1,1 @@
-Copyright 2016 Zacharias Berggren
+© 2016 Zacharias Berggren
