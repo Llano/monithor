@@ -99,6 +99,7 @@
     <Compile Include="CommSocket.cs" />
     <Compile Include="DatabaseConnection.cs" />
     <Compile Include="MyHub.cs" />
+    <Compile Include="Opcode.cs" />
     <Compile Include="SignalR.cs" />
     <Compile Include="Startup.cs" />
     <Page Include="MainWindow.xaml">
