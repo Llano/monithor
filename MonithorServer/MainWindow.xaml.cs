@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Net;
 
 
 namespace MonithorServer
@@ -22,6 +23,7 @@ namespace MonithorServer
     public partial class MainWindow : Window
     {
         public SignalR s;
+        public CommSocket _Csocket { get; set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -31,6 +33,7 @@ namespace MonithorServer
         public void Setup()
         {
             this.s = new SignalR("127.0.0.1", 8080);
+            this._Csocket = new CommSocket(IPAddress.Any, 8056);
         }
 
         // Start SignalR server
@@ -46,6 +49,18 @@ namespace MonithorServer
             {
                 listBoxLog.Items.Add("Could not start signalR");
             }
+        }
+
+        public void startTcpServer()
+        {
+            this._Csocket.start();
+            startTcpListener.Content = "Stop TCP";
+        }
+
+        public void stopTcpServer()
+        {
+            this._Csocket.stop();
+            startTcpListener.Content = "Start TCP";
         }
 
         // Stop SignalR server
@@ -70,6 +85,20 @@ namespace MonithorServer
                 startSignalR();
             }
             
+        }
+
+        private void startTcpListener_Click(object sender, RoutedEventArgs e)
+        {
+            if (this._Csocket.isRunning())
+            {
+                stopTcpServer();
+                listBoxLog.Items.Add("Stopping TCP..");
+            }
+            else
+            {
+                listBoxLog.Items.Add("Starting TCP..");
+                startTcpServer();
+            }
         }
     }
 }

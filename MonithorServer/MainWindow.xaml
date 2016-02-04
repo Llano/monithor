@@ -11,7 +11,8 @@
             <TabItem Header="TabItem" Margin="0,0,-4,-2">
                 <Grid Background="#FFE5E5E5">
                     <ListBox x:Name="listBoxLog" HorizontalAlignment="Left" Height="271" Margin="152,10,0,0" VerticalAlignment="Top" Width="349"/>
-                    <Button x:Name="startSignalRButton" Content="Start" HorizontalAlignment="Left" Margin="21,254,0,0" VerticalAlignment="Top" Width="107" Height="27" Click="startSignalR_Click"/>
+                    <Button x:Name="startSignalRButton" Content="Start SignalR" HorizontalAlignment="Left" Margin="22,212,0,0" VerticalAlignment="Top" Width="107" Height="27" Click="startSignalR_Click"/>
+                    <Button x:Name="startTcpListener" Content="Start TCP" HorizontalAlignment="Left" Margin="22,244,0,0" VerticalAlignment="Top" Width="107" Height="28" Click="startTcpListener_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="TabItem">
