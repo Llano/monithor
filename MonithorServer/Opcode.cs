@@ -20,6 +20,7 @@ namespace MonithorServer
            // this server --> Arma 3
            ACCSETUP = 3, //Accept setup
            COM = 4,  //Send command
+           ACCCOM = 5 //Command was executed
 
 
         }
