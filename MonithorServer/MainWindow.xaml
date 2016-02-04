@@ -11,21 +11,28 @@
             <TabItem Header="Server" Margin="0,0,-4,-2">
                 <Grid Background="#FFE5E5E5">
                     <ListBox x:Name="listBoxLog" HorizontalAlignment="Left" Height="271" Margin="152,10,0,0" VerticalAlignment="Top" Width="349"/>
-                    <Button x:Name="startSignalRButton" Content="Start SignalR" HorizontalAlignment="Left" Margin="22,212,0,0" VerticalAlignment="Top" Width="107" Height="27" Click="startSignalR_Click"/>
-                    <Button x:Name="startTcpListener" Content="Start TCP" HorizontalAlignment="Left" Margin="22,244,0,0" VerticalAlignment="Top" Width="107" Height="28" Click="startTcpListener_Click"/>
+                    <Button x:Name="startSignalRButton" Content="Start server" HorizontalAlignment="Left" Margin="23,254,0,0" VerticalAlignment="Top" Width="107" Height="27" Click="startSignalR_Click"/>
+                    <Ellipse x:Name="databaseStatus" Fill="#FFFF5C5C" HorizontalAlignment="Left" Height="19" Margin="103,70,0,0" VerticalAlignment="Top" Width="19"/>
+                    <Ellipse x:Name="TCPStatus" Fill="#FFFF5C5C" HorizontalAlignment="Left" Height="19" Margin="103,110,0,0" VerticalAlignment="Top" Width="19"/>
+                    <Ellipse x:Name="SignalRStatus" Fill="#FFFF5C5C" HorizontalAlignment="Left" Height="19" Margin="103,30,0,0" VerticalAlignment="Top" Width="19"/>
+                    <Label x:Name="label_Copy" Content="Database" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top" Width="84" Height="26"/>
+                    <Label x:Name="label_Copy1" Content="TCP" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Width="84" Height="26"/>
+                    <Label x:Name="label" Content="SignalR" HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top" Width="84" Height="26"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Database">
                 <Grid Background="#FFE5E5E5">
-                    <GroupBox x:Name="groupBox" Header="Database" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="271" Width="256"/>
-                    <TextBox x:Name="databaseIP" HorizontalAlignment="Left" Height="20" Margin="30,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="106"/>
-                    <TextBox x:Name="databaseName" HorizontalAlignment="Left" Height="20" Margin="30,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="106"/>
-                    <TextBox x:Name="databasUsername" HorizontalAlignment="Left" Height="20" Margin="30,161,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="106"/>
-                    <TextBox x:Name="databasPassword" HorizontalAlignment="Left" Height="20" Margin="30,219,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="106"/>
-                    <Label x:Name="databasIPLabel" Content="Adress" HorizontalAlignment="Left" Margin="30,40,0,0" VerticalAlignment="Top" Height="23" Width="53"/>
-                    <Label x:Name="databaseNameLabel" Content="Name" HorizontalAlignment="Left" Margin="30,82,0,0" VerticalAlignment="Top" Height="23" Width="53"/>
-                    <Label x:Name="databasUsernameLabel" Content="Username" HorizontalAlignment="Left" Margin="30,138,0,0" VerticalAlignment="Top" Height="23" Width="78"/>
-                    <Label x:Name="databasPasswordLabel" Content="Password" HorizontalAlignment="Left" Margin="30,196,0,0" VerticalAlignment="Top" Height="23" Width="64"/>
+                    <GroupBox x:Name="groupBox" Header="Database" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="271" Width="256">
+                        <Button x:Name="saveDatabase" Content="Save" HorizontalAlignment="Left" Margin="10,220,0,0" VerticalAlignment="Top" Width="75" Height="27" Click="saveDatabase_Click"/>
+                    </GroupBox>
+                    <TextBox x:Name="databaseIP" HorizontalAlignment="Left" Height="20" Margin="27,61,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="106"/>
+                    <TextBox x:Name="databaseName" HorizontalAlignment="Left" Height="20" Margin="27,106,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="106"/>
+                    <TextBox x:Name="databasUsername" HorizontalAlignment="Left" Height="20" Margin="27,162,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="106"/>
+                    <TextBox x:Name="databasPassword" HorizontalAlignment="Left" Height="20" Margin="27,220,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="106"/>
+                    <Label x:Name="databasIPLabel" Content="Adress" HorizontalAlignment="Left" Margin="27,33,0,0" VerticalAlignment="Top" Height="23" Width="53"/>
+                    <Label x:Name="databaseNameLabel" Content="Name" HorizontalAlignment="Left" Margin="27,83,0,0" VerticalAlignment="Top" Height="23" Width="53"/>
+                    <Label x:Name="databasUsernameLabel" Content="Username" HorizontalAlignment="Left" Margin="27,139,0,0" VerticalAlignment="Top" Height="23" Width="78"/>
+                    <Label x:Name="databasPasswordLabel" Content="Password" HorizontalAlignment="Left" Margin="27,197,0,0" VerticalAlignment="Top" Height="23" Width="64"/>
                     <Button x:Name="testDatabaseConnection" Content="Test Connection" HorizontalAlignment="Left" Margin="280,247,0,0" VerticalAlignment="Top" Width="221" Height="34" Click="testDatabaseConnection_Click"/>
 
                 </Grid>

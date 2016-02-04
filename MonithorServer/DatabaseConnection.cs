@@ -78,5 +78,10 @@ namespace MonithorServer
             }
 
         }
+
+        public override string ToString()
+        {
+            return this.connectionString;
+        }
     }
 }

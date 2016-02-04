@@ -24,46 +24,40 @@ namespace MonithorServer
             this.run = false;
         }
 
-        // Start the TcpListener and assign the connecting clients 
-        //to a thread in the threadpool
+        // Start the TcpListener
         public void start()
         {
-            Thread t = new Thread(() =>
-            {
-                this._TcpListener.Start();
-                this.run = true;
 
-                while (run)
-                {
+            this._TcpListener.Start();
+            startAccept();
 
-                    TcpClient client = _TcpListener.AcceptTcpClient();
-                    ThreadPool.QueueUserWorkItem(processClient, client);
-                }
 
-                this._TcpListener.Stop();
-            });
-            t.IsBackground = true; //We don't want the thread to keep running after application exit
-            t.Start();
             
+
         }
 
-        public bool isRunning()
+        public void startAccept()
         {
-            return run;
+            this._TcpListener.BeginAcceptTcpClient(HandleAsyncConnection, this._TcpListener);
         }
+
+
+        // Here we handles the client
+        private void HandleAsyncConnection(IAsyncResult res)
+        {
+            startAccept(); //listen for new connections again
+            TcpClient client = this._TcpListener.EndAcceptTcpClient(res);
+            //proceed
+
+        }
+
 
         public void stop()
         {
             this.run = false;
         }
 
-        // Here we handles the client
-        public void processClient(object obj)
-        {
-            TcpClient client = (TcpClient)obj;
-            Debug.Write("Client connected");
-            
-        }
+       
 
         //Send message to a client
         public void sendMessageClient(TcpClient tcpClient, string message)
