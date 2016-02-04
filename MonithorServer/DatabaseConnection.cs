@@ -25,6 +25,7 @@ namespace MonithorServer
         }
 
 
+        // check if ot's possible to connectoto the selected database
         public bool databaseAvaiable()
         {
             using (MySqlConnection connection = new MySqlConnection(connectionString))
@@ -45,6 +46,7 @@ namespace MonithorServer
 
         }
 
+        // Retrieve the Arma servers from the database
         public Dictionary<string, int> getArmaServers()
         {
             using (MySqlConnection connection = new MySqlConnection(connectionString))

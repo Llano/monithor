@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace MonithorServer
 {
     /// <summary>
@@ -24,18 +25,51 @@ namespace MonithorServer
         public MainWindow()
         {
             InitializeComponent();
+            Setup();
         }
 
         public void Setup()
         {
-
+            this.s = new SignalR("127.0.0.1", 8080);
         }
 
+        // Start SignalR server
         public void startSignalR()
         {
-            
+
+            if(s.start())
+            {
+                listBoxLog.Items.Add("SignalR has started on " + this.s.url);
+                startSignalRButton.Content = "Stop";
+            }
+            else
+            {
+                listBoxLog.Items.Add("Could not start signalR");
+            }
         }
 
+        // Stop SignalR server
+        public void stopSignalR()
+        {
+            this.s.stop();
+            startSignalRButton.Content = "Start";
 
+        }
+
+        // Button was pressed to either start or stop the server
+        private void startSignalR_Click(object sender, RoutedEventArgs e)
+        {
+            if (s.isRunning())
+            {
+                listBoxLog.Items.Add("Stopping signalR");
+                stopSignalR();
+            }
+            else
+            {
+                listBoxLog.Items.Add("Starting signalR..");
+                startSignalR();
+            }
+            
+        }
     }
 }

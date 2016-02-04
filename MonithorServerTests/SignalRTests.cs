@@ -28,9 +28,7 @@ namespace MonithorServer.Tests
         [TestMethod()]
         public void startTest()
         {
-            SignalR s = new SignalR("127.0.0.1", 8080);
-            Trace.WriteLine(s.url);
-            
+            SignalR s = new SignalR("127.0.0.1", 8080);            
             Assert.AreEqual(true, s.start());
         }
     }

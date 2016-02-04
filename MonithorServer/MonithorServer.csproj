@@ -96,6 +96,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CommSocket.cs" />
     <Compile Include="DatabaseConnection.cs" />
     <Compile Include="MyHub.cs" />
     <Compile Include="SignalR.cs" />
