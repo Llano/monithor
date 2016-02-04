@@ -18,7 +18,7 @@
             <TabItem Header="TabItem">
                 <Grid Background="#FFE5E5E5">
                     <GroupBox x:Name="groupBox" Header="Database" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="271" Width="256"/>
-                    <TextBox x:Name="databasIP" HorizontalAlignment="Left" Height="20" Margin="30,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="106"/>
+                    <TextBox x:Name="databaseIP" HorizontalAlignment="Left" Height="20" Margin="30,60,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="106"/>
                     <TextBox x:Name="databaseName" HorizontalAlignment="Left" Height="20" Margin="30,105,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="106"/>
                     <TextBox x:Name="databasUsername" HorizontalAlignment="Left" Height="20" Margin="30,161,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="106"/>
                     <TextBox x:Name="databasPassword" HorizontalAlignment="Left" Height="20" Margin="30,219,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="106"/>
@@ -26,7 +26,7 @@
                     <Label x:Name="databaseNameLabel" Content="Name" HorizontalAlignment="Left" Margin="30,82,0,0" VerticalAlignment="Top" Height="23" Width="53"/>
                     <Label x:Name="databasUsernameLabel" Content="Username" HorizontalAlignment="Left" Margin="30,138,0,0" VerticalAlignment="Top" Height="23" Width="78"/>
                     <Label x:Name="databasPasswordLabel" Content="Password" HorizontalAlignment="Left" Margin="30,196,0,0" VerticalAlignment="Top" Height="23" Width="64"/>
-                    <Button x:Name="button1" Content="Test Connection" HorizontalAlignment="Left" Margin="280,247,0,0" VerticalAlignment="Top" Width="221" Height="34"/>
+                    <Button x:Name="testDatabaseConnection" Content="Test Connection" HorizontalAlignment="Left" Margin="280,247,0,0" VerticalAlignment="Top" Width="221" Height="34" Click="testDatabaseConnection_Click"/>
 
                 </Grid>
             </TabItem>

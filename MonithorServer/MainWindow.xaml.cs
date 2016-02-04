@@ -24,6 +24,7 @@ namespace MonithorServer
     {
         public SignalR s;
         public CommSocket _Csocket { get; set; }
+        public DatabaseConnection database { get; set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -34,6 +35,7 @@ namespace MonithorServer
         {
             this.s = new SignalR("127.0.0.1", 8080);
             this._Csocket = new CommSocket(IPAddress.Any, 8056);
+            this.database = new DatabaseConnection("monithor", "password", "127.0.0.1", "monithor");
         }
 
         // Start SignalR server
@@ -98,6 +100,14 @@ namespace MonithorServer
             {
                 listBoxLog.Items.Add("Starting TCP..");
                 startTcpServer();
+            }
+        }
+
+        private void testDatabaseConnection_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.database.databaseAvaiable())
+            {
+                MessageBox.Show("Databas is available!");
             }
         }
     }
