@@ -35,6 +35,7 @@ namespace MonithorServer
 
                 while (run)
                 {
+
                     TcpClient client = _TcpListener.AcceptTcpClient();
                     ThreadPool.QueueUserWorkItem(processClient, client);
                 }
@@ -56,11 +57,24 @@ namespace MonithorServer
             this.run = false;
         }
 
+        // Here we handles the client
         public void processClient(object obj)
         {
             TcpClient client = (TcpClient)obj;
             Debug.Write("Client connected");
             
         }
+
+        //Send message to a client
+        public void sendMessageClient(TcpClient tcpClient, string message)
+        {
+            NetworkStream clientStream = tcpClient.GetStream();
+            ASCIIEncoding encoder = new ASCIIEncoding();
+            byte[] buffer = encoder.GetBytes(message);
+
+            clientStream.Write(buffer, 0, buffer.Length);
+            clientStream.Flush();
+        }
+
     }
 }

@@ -44,12 +44,12 @@ namespace MonithorServer
 
             if(s.start())
             {
-                listBoxLog.Items.Add("SignalR has started on " + this.s.url);
+                log("SignalR has started on " + this.s.url);
                 startSignalRButton.Content = "Stop";
             }
             else
             {
-                listBoxLog.Items.Add("Could not start signalR");
+                log("Could not start signalR");
             }
         }
 
@@ -78,12 +78,12 @@ namespace MonithorServer
         {
             if (s.isRunning())
             {
-                listBoxLog.Items.Add("Stopping signalR");
+                log("Stopping signalR");
                 stopSignalR();
             }
             else
             {
-                listBoxLog.Items.Add("Starting signalR..");
+                log("Starting signalR..");
                 startSignalR();
             }
             
@@ -94,11 +94,11 @@ namespace MonithorServer
             if (this._Csocket.isRunning())
             {
                 stopTcpServer();
-                listBoxLog.Items.Add("Stopping TCP..");
+                log("Stopping TCP..");
             }
             else
             {
-                listBoxLog.Items.Add("Starting TCP..");
+                log("Starting TCP..");
                 startTcpServer();
             }
         }
@@ -109,6 +109,12 @@ namespace MonithorServer
             {
                 MessageBox.Show("Databas is available!");
             }
+        }
+
+        //Write status to listbox
+        public void log(string message)
+        {
+            listBoxLog.Items.Add(DateTime.Now.ToString() + " - " + message);
         }
     }
 }
